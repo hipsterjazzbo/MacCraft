@@ -36,7 +36,7 @@ jobs:
         uses: SebRollen/toml-action@v1.0.0
         id: get_mod_name
         with:
-          file: src/main/resources/META-INF/mods.toml
+          file: ${{ github.workspace }}/src/main/resources/META-INF/mods.toml
           field: mods.0.modId
       - name: Download mod jar
         uses: actions/download-artifact@v3
