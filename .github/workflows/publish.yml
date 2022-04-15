@@ -28,7 +28,7 @@ jobs:
         id: get_mod_name
         with:
           file: src/main/resources/META-INF/mods.toml
-          field: displayName
+          field: mods.0.displayName
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
