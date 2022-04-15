@@ -34,12 +34,8 @@ jobs:
         with:
           name: ${{ steps.get_mod_name.outputs.value }}-${{ github.event.release.tag_name || 'test' }}.jar
           path: build/libs/
-
-  publish:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: Kir-Antipov/mc-publish@v2.1
+      - name: Publish to CurseForge
+        uses: Kir-Antipov/mc-publish@v2.1
         with:
           curseforge-id: 394468
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
