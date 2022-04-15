@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "hipsterjazzbo.maccraft.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "maccraft.refmap.json",
+  "mixins": [
+  ],
+  "client": [
+    "AbstractContainerScreenMixin",
+    "IAbstractContainerScreenMixin",
+    "MinecraftMixin",
+    "MouseHandlerMixin",
+    "WindowHintsMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
