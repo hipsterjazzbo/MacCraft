@@ -22,22 +22,22 @@ jobs:
         uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
         with:
           arguments: build
-      - name: Get mod name
-        uses: SebRollen/toml-action@v1.0.0
-        id: get_mod_name
-        with:
-          file: src/main/resources/META-INF/mods.toml
-          field: mods.0.displayName
       - name: Upload build
         uses: actions/upload-artifact@v3
         with:
           name: modjar
-          path: ${{ github.workspace }}/build/libs/${{ steps.get_mod_name.outputs.value }}-${{ github.event.release.tag_name || 'test' }}.jar
+          path: ${{ github.workspace }}/build/libs/
 
   publish:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Get mod name
+        uses: SebRollen/toml-action@v1.0.0
+        id: get_mod_name
+        with:
+          file: src/main/resources/META-INF/mods.toml
+          field: mods.0.modId
       - name: Download mod jar
         uses: actions/download-artifact@v3
         with:
