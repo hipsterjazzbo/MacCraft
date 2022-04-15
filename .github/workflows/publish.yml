@@ -49,4 +49,4 @@ jobs:
           curseforge-id: 394468
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files: ${{ github.workspace }}/build/libs/*.jar
+          files: ${{ github.workspace }}/build/libs/${{ steps.get_mod_name.outputs.value }}-${{ github.event.release.tag_name || 'test' }}.jar
