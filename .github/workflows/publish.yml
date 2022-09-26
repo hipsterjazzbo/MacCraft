@@ -50,9 +50,8 @@ jobs:
         with:
           name: ${{ steps.get_mod_name.outputs.value }}-${{ github.event.release.tag_name || 'test' }}.jar
           path: ${{ github.workspace }}/build/libs/${{ steps.get_mod_name.outputs.value }}-${{ github.event.release.tag_name || 'test' }}.jar
-      - uses: Kir-Antipov/mc-publish@v2.1
+      - uses: Kir-Antipov/mc-publish@v3.2
         with:
-          curseforge-id: 394468
+          curseforge-id: 613117
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          files: ${{ github.workspace }}/build/libs/${{ steps.get_mod_name.outputs.value }}-${{ github.event.release.tag_name || 'test' }}.jar
