@@ -19,7 +19,7 @@ version = '1.0'
 
 java {
     archivesBaseName = 'maccraft'
-    toolchain.languageVersion = JavaLanguageVersion.of(17)
+    toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 
 minecraft {

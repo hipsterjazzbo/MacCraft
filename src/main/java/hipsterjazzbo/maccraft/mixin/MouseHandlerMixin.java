@@ -1,11 +1,11 @@
 package hipsterjazzbo.maccraft.mixin;
 
-import net.minecraft.client.MouseHandler;
+import net.minecraft.client.MouseHelper;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
 
-@Mixin({MouseHandler.class})
+@Mixin({MouseHelper.class})
 public class MouseHandlerMixin {
     //Doubles and longs are counted twice, index 5 is vertical in onMouseScroll.
     @ModifyVariable(method = "onScroll", at = @At("HEAD"), index = 5, argsOnly = true)

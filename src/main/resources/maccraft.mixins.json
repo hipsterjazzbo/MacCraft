@@ -7,8 +7,8 @@
   "mixins": [
   ],
   "client": [
-    "AbstractContainerScreenMixin",
-    "IAbstractContainerScreenMixin",
+    "ContainerScreenMixin",
+    "IHasContainerMixin",
     "MinecraftMixin",
     "MouseHandlerMixin",
     "WindowHintsMixin"

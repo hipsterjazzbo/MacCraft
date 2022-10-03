@@ -1,8 +1,8 @@
 package hipsterjazzbo.maccraft.mixin;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.screens.Screen;
-import net.minecraft.client.player.LocalPlayer;
+import net.minecraft.client.entity.player.ClientPlayerEntity;
+import net.minecraft.client.gui.screen.Screen;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
@@ -12,11 +12,11 @@ public class MinecraftMixin {
     @Redirect(
             at = @At(
                     value = "INVOKE",
-                    target = "Lnet/minecraft/client/player/LocalPlayer;drop(Z)Z"
+                    target = "Lnet/minecraft/client/entity/player/ClientPlayerEntity;drop(Z)Z"
             ),
-            method = "Lnet/minecraft/client/Minecraft;handleKeybinds()V"
+            method = "handleKeybinds()V"
     )
-    public boolean drop(LocalPlayer instance, boolean p_108701_) {
+    public boolean drop(ClientPlayerEntity instance, boolean p_108701_) {
         return instance.drop(Minecraft.ON_OSX ? Screen.hasAltDown() : Screen.hasControlDown());
     }
 }
